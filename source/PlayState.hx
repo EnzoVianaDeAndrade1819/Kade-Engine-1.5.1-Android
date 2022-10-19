@@ -674,6 +674,76 @@ class PlayState extends MusicBeatState
 								add(waveSpriteFG);
 						*/
 			}
+                        // SONG 1 STAGE
+                        case 'sonicStage':
+					{
+						defaultCamZoom = 1.0;
+						curStage = 'SONICstage';
+
+						var sSKY:FlxSprite = new FlxSprite(-222, -16 + 150).loadGraphic(Paths.image('PolishedP1/SKY'));
+						sSKY.antialiasing = true;
+						sSKY.scrollFactor.set(1, 1);
+						sSKY.active = false;
+						add(sSKY);
+
+						var hills:FlxSprite = new FlxSprite(-264, -156 + 150).loadGraphic(Paths.image('PolishedP1/HILLS'));
+						hills.antialiasing = true;
+						hills.scrollFactor.set(1.1, 1);
+						hills.active = false;
+						if (!lowQuality)
+							add(hills);
+
+						var bg2:FlxSprite = new FlxSprite(-345, -289 + 170).loadGraphic(Paths.image('PolishedP1/FLOOR2'));
+						bg2.updateHitbox();
+						bg2.antialiasing = true;
+						bg2.scrollFactor.set(1.2, 1);
+						bg2.active = false;
+						if (!lowQuality)
+							add(bg2);
+
+						var bg:FlxSprite = new FlxSprite(-297, -246 + 150).loadGraphic(Paths.image('PolishedP1/FLOOR1'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(1.3, 1);
+						bg.active = false;
+						add(bg);
+
+						var eggman:FlxSprite = new FlxSprite(-218, -219 + 150).loadGraphic(Paths.image('PolishedP1/EGGMAN'));
+						eggman.updateHitbox();
+						eggman.antialiasing = true;
+						eggman.scrollFactor.set(1.32, 1);
+						eggman.active = false;
+
+						add(eggman);
+
+						var tail:FlxSprite = new FlxSprite(-199 - 150, -259 + 150).loadGraphic(Paths.image('PolishedP1/TAIL'));
+						tail.updateHitbox();
+						tail.antialiasing = true;
+						tail.scrollFactor.set(1.34, 1);
+						tail.active = false;
+
+						add(tail);
+
+						var knuckle:FlxSprite = new FlxSprite(185 + 100, -350 + 150).loadGraphic(Paths.image('PolishedP1/KNUCKLE'));
+						knuckle.updateHitbox();
+						knuckle.antialiasing = true;
+						knuckle.scrollFactor.set(1.36, 1);
+						knuckle.active = false;
+
+						add(knuckle);
+
+						var sticklol:FlxSprite = new FlxSprite(-100, 50);
+						sticklol.frames = Paths.getSparrowAtlas('PolishedP1/TailsSpikeAnimated');
+						sticklol.animation.addByPrefix('a', 'Tails Spike Animated instance 1', 4, true);
+						sticklol.setGraphicSize(Std.int(sticklol.width * 1.2));
+						sticklol.updateHitbox();
+						sticklol.antialiasing = true;
+						sticklol.scrollFactor.set(1.37, 1);
+
+						add(sticklol);
+
+						if (!lowQuality)
+							sticklol.animation.play('a', true);
+					}
 			case 'stage':
 				{
 						defaultCamZoom = 0.9;
